@@ -25,17 +25,18 @@
 	  1. loader 
 	    在webpack中 loader的配置是有顺序的  ， 执行顺序为 从右->左 ，从下->上
 	  2. 打包字体文件
-	    要加载file-loader 打包文件
+	        要加载file-loader 打包文件
 	  3. 适用plugins打包
-	   安装html 的打包plugins    npm install --save-dev html-webpack-plugin
-	   htmlwebpackplugin 会生成一个html文件并且自动会把webpack打包生成的js文件引入到html中
-	   plugin 可以在webpack运行到某个时刻时帮你做一些事情 在某些节点上需要做一些事情
-	   CleanWebpackPlugin 在配置时需要  const {CleanWebpackPlugin}  = require('clean-webpack-plugin')
-	   变量第一个字母需要大写   在plugin ： [ 不能配置参数]
+       安装html 的打包plugins    npm install --save-dev html-webpack-plugin
+	      htmlwebpackplugin 会生成一个html文件并且自动会把webpack打包生成的js文件引入到html中
+	      plugin 可以在webpack运行到某个时刻时帮你做一些事情 在某些节点上需要做一些事情
+	      CleanWebpackPlugin 在配置时需要  const {CleanWebpackPlugin}  = require('clean-webpack-plugin')
+	      变量第一个字母需要大写   在plugin ： [ 不能配置参数]
 4.entry 和 output
-     1. 打包对应的多文件
-     在entry 中配置多个key
-     修改output中的feilenaem ： [name].js (name 为entry中的key)
+          1. 打包对应的多文件
+          在entry 中配置多个key
+          修改output中的feilenaem ： [name].js (name 为entry中的key)
+
 5. sourcesMap
      1.是一个映射关系 当js文件出错是 可以直接映射到源文件的出错文件
 6.devserver 
@@ -90,6 +91,7 @@
    11. webpacl 和 code spliting关系
 
    12. 代码分割： 
+
     1.同步代码分割：只需要在webpack.common.js中做optimization的配置
     2.异步代码分割：（import） 异步代码无需做任何处理，会自动进行代码分割
 
@@ -102,6 +104,6 @@
      /* webpackPrefetch: true */ 
 
    15. css 代码分割
-   只支持线上环境  不支持html
-   MiniCssExtractPlugin 插件
-    	
+      只支持线上环境  不支持html
+      MiniCssExtractPlugin 插件
+
