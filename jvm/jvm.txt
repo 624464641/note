@@ -1,8 +1,9 @@
-1. 前端编译器 javac
- 解释运行文件为.class文件
+1. 
+2. 前端编译器 javac
+    解释运行文件为.class文件
 
  jvm 流程信息
-   
+
   2.运行时数据区信息 (runtime data area)
    1.多个线程共享方法区（method  area）去和堆 （ heap ）信息
    2. java栈（java stack）、 本地方法栈（native method stack）、程序计数器（program counter register）
@@ -43,12 +44,12 @@
  类加载器的分类
   1. 引导类加载器 java的核心类库都是由引导类加载器加载的 （bootstrap classloader）
       用c++ 编写的  并且没有继承classloader ， 只加载包名为java javax sun开头的包
-  2.自定义类加载器  - 扩展类加载器 extension classloader
+    2.自定义类加载器  - 扩展类加载器 extension classloader
 
 
  双亲委派机制
  1. java虚拟机对class文件加载是需要是才加载
-  原理： 一个类加载器收到类加载的请求，并不是自己先加载，而是吧这个委托给父类加载器去执行
+    原理： 一个类加载器收到类加载的请求，并不是自己先加载，而是吧这个委托给父类加载器去执行
         如果父类加载器还存在父类加载则向上委托，依次递归请求将到达顶层的启动类加载器
         如果父类加载器可以完成类加载任务子类加载器才会尝试自己去加载这就是双亲委派机制
  沙箱安全机制
