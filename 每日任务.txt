@@ -1,0 +1,183 @@
+08-18
+ 1. 学习算法左右位移和了解ConcurrentMap 
+
+
+08-25 
+ 1. 静态代理  ： 接口注入的方式实现前后环绕
+    代理对象 ， 目标对象
+    单一职责
+
+
+ 2. 动态代理  {
+	1 . jdk代理 
+	  实现invocationHandler
+	  jdk代理是基于接口代理，用java的反射来调用源对象 ， 从而在之前和之后添加相应的处理
+	解析 Proxy.newInstance( classLoader , interfaces , invocationHandler );
+
+	2 . cglib代理 
+	  实现methodinterceptor 接口  实现intercept 方法 来实现代理
+	  其代理的原理  用于创建子类 使用继承的方式调用父类的方法
+}
+
+
+java nio 
+     Channel :{
+       FileChannel - 文件流  
+       DatagramChannel - 数据通道
+       SocketChannel - 栈通道
+       ServerSocketChannel - 服务栈通道
+
+     }
+     
+spring 
+    bean的建模对象：
+    spring先把bean扫描出来，并没有被实例化，而是解析成beandefintion对象然后push在beandefintionmap中后才会去实例化，
+
+    scan -> parse类-> 验证valideta(info) -> 实例化-> 初始化（生命周期）
+
+    		// Invoke factory processors registered as beans in the context.调用上下文中注册为bean的工厂处理器。
+				// 完成bean工厂的扫描 和parse 解析 （类 -> beanDefintion）
+ 
+
+    			// Instantiate all remaining (non-lazy-init) singletons. 实例化所有剩余的(非延迟-init)单例。
+				// 开始实例化单例的类  validate 和 life
+
+
+
+    抽象能力
+
+
+
+   自动装配：
+    提供构造 ， bytype
+
+
+
+
+vue生命周期函数
+vuex  
+vue-router
+vue -后端渲染
+
+
+java
+ list { arrayList
+        LlinkeList
+      }
+
+   arrayList ： extends abstractList  implements List , RandomAccess , Cloneable , Serializable
+
+   RandomAccess 基于下标 区别arraylist和linkelist  从而选择更加优秀的遍历方式
+
+   Serializable 序列化和反序列化， 在数据传输时 ，将流转为对象，这俩个过程结合，可以轻松的存储和传输数据。 在java中可以serializable 接口是给jvm看
+    通知jvm帮我序列化这个类  生成uuid。只是如果我们没有序列化 则可能会发生invalidclassexception异常（因为每一次都需要计算）
+   AbstractList： 说明是一个列表 有crud功能
+   lsit： 
+   
+
+
+   grow（扩容）{
+
+    1. 获取当前数组的长度
+    2. 默认将数据扩容为原来的1.5倍
+    3.如果1.5倍过小， 则将所需的容量给capacity 
+    4.如果1.5倍过大，则直接拿new CapaCatity
+    5.然后将原数组中的数据复制到大小为 newCapacity 的新数组中，并将新数组赋值给 elementData。
+
+
+   }
+
+
+   LinkedList<E> extends AbstractSequentialList<E> implements List<E>, Deque<E>, Cloneable, java.io.Serializable
+
+   AbstractSequentialList 本质上面与继承 AbstractList 没有什么区别，AbstractSequentialList 完善了 AbstractList 中没有实现的方法。
+   
+   final Node<E> l = last;//获取这个list对象内部的Node类型成员last，即末位节点，以该节点作为新插入元素的前驱节点
+
+   Deque：实现了Collection 大家庭中的队列接口，说明他拥有作为双端队列的功能。
+
+ map  {
+       hashMap
+       ConCurrentMap
+ }
+
+ 线程 synct
+
+
+
+ explain  
+   id : 在打的查询中每一个select 关键字都对应一个id
+   select_type: select 关键字对应的查询类型 值有：
+      simple: 简单select 不适用unino all或者子查询
+      primary： 子查询中最外层查询，查询中若包含任何外部的子查询，最外层的select被标记为 primary
+      union： union 中第二个或者后面的select查询
+
+
+oauth2 
+  
+
+
+
+
+
+
+
+
+ 1.先把map摸透
+   时间 一个星期
+
+
+
+
+ 2020 - 09-15
+   搭建rabbitmq 集成至项目中 
+   熟悉crud 的api
+
+
+redis
+  持久化的方式
+  rdb
+  aof
+
+
+
+添加字符串
+set key value 
+批量设置
+mset key value key value
+strlen 字符串长度 （ 返回字节长度  一个中文3个字节） 
+setrang key offeset value 设置指定位置的值
+
+
+批量获取
+mget 
+
+list集合
+rupsh key value []
+
+设置过期时间
+expire key seconds
+
+ttl 查看过期时间
+  >0 显示剩余时间
+  -1 已经过期
+  -2 key不存在
+type key 返回key的类型
+
+ 
+
+incr 自增长
+decr 自减
+
+
+
+CAS 机制
+
+内部编码：
+ int  8个字节
+ embstr  小于39个字节
+ raw 大于39个字节
+
+
+redis 是单线程的
+

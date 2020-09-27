@@ -1,0 +1,20 @@
+1. innodb 在数据库中维护了一块table cache 用于提高数据库访问数据字典的效率
+   查询： 
+     当有操作时，innodb首先会查询表定义是否存在于table cache中
+      	如果存在则：直接引用
+      	如果不存在：innodb会先从.idb文件中取出表自定义并且放入table cache 后 ， 再取得引用方便下次查询
+   引用（crash）：
+     使用过程中由于对table的锁保护不完整，导致引用的对象被master thread删除 从而触发crash
+
+  缓存设置： table_definition_cache
+    最小值为400，
+    默认值的计算： min(400+table_open_cache/2),2000)
+
+
+
+
+
+
+
+悲观锁 乐观锁
+

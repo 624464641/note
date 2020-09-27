@@ -42,6 +42,29 @@ public static SingletonA getInstance(){
 
 ​      特点： 类在初始化时已经加载，全局任何地方调用都是使用同一个对象
 
+3.完美的单例 ： 在多线程中可以保持是同一个对象 同时也是在需要时才加载，而不是类运行直接加载
+
+~~~ java
+    public static SingletonA  getInstanceC(){
+
+        if(singletonB == null){
+
+            synchronized (SingletonA.class){
+
+                if(singletonB == null){
+
+                    singletonB = new SingletonA();
+
+                }
+            }
+        }
+
+        return singletonB;
+    }
+~~~
+
+
+
 3. 使用场景描述：
 
 - 在应用场景中，某类只要求生成一个对象的时候，如一个班中的班长、每个人的身份证号等。
